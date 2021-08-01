@@ -1,6 +1,5 @@
 public class LongestPalindrome {
-
-    public static String longestPalindrome(String s) {
+    public String longestPalindrome(String s) {
         boolean[][] P = new boolean[s.length()][s.length()];
         int maxI = -1, maxJ = -1;
         int maxLength = -1;
