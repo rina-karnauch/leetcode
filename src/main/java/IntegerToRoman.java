@@ -47,6 +47,6 @@ public class IntegerToRoman {
     }
 
     public static void main(String[] args) {
-        System.out.println(intToRoman(1994));
+        System.out.println(intToRoman(10994));
     }
 }
