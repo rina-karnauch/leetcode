@@ -1,10 +1,14 @@
 import java.util.Arrays;
-import java.util.Comparator;
 
 public class longestPrefix {
 
     public static String longestCommonPrefix(String[] strs) {
-        Arrays.sort(strs, Comparator.comparingInt(String::length));
+        Arrays.sort(strs, new java.util.Comparator<String>() {
+            @Override
+            public int compare(String s1, String s2) {
+                return s1.length() - s2.length();
+            }
+        });
         String prefix = strs[0];
 
         for (int i = 1; i < strs.length; i++) {
