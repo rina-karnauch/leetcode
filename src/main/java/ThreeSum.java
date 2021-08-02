@@ -23,7 +23,38 @@ public class ThreeSum {
         return l;
     }
 
+    public static List<List<Integer>> threeSumEfficient(int[] nums) {
+
+        List<List<Integer>> l = new ArrayList<>();
+        Arrays.sort(nums);
+
+        for (int i = 0; i < nums.length; i++) {
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                // no dupes
+                continue;
+            }
+            // greedy solution: lets assume we need the biggest nums[k]
+            int j = i + 1, k = nums.length - 1;
+            while(j<k){
+                if(j > i+1 && nums[j] == nums[j-1]){
+                    j++;
+                    continue;
+                }
+                int z = nums[i] + nums[j] + nums[k];
+                if(z>0){
+                    k-=1;
+                }else if(z<0){
+                    j+=1;
+                }else{
+                    l.add(Arrays.asList(nums[i], nums[j], nums[k]));
+                    j++;
+                }
+            }
+        }
+        return l;
+    }
+
     public static void main(String[] args) {
-        System.out.println(threeSum(new int[]{-1, 0, 1, 2, -1, -4}));
+        System.out.println(threeSumEfficient(new int[]{0,0,0}));
     }
 }
